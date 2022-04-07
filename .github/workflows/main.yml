@@ -1,1 +1,17 @@
-blah
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  workflow-dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install anypoint-cli and run command
+        run: |
+          npm install -g anypoint-cli@latest
+          ::add-mask::anypoint-cli --username="${{ secrets.SECRET_NAME }}" --password="${{ secrets.SECRET_NAME }}"
+          exchange asset upload 42133235-551d-490e-a5e1-96ca681126d8/paul-poc-api-1/1.0.0 --apiVersion v1 --name paul-poc-api-1 --classifier oas api.yaml
