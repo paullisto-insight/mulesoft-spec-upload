@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup node 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
       - name: npm install anypoint-cli and run command
         run: |
           npm install -g anypoint-cli@latest
