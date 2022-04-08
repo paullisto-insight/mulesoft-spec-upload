@@ -16,7 +16,8 @@ jobs:
         with:
           node-version: 16.x
       - name: npm install anypoint-cli and run command
+        if: ${{ github.action }} == '**.*.**'
         run: |
           npm install -g anypoint-cli@latest
-          echo "42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.event.push.name }}"
-          anypoint-cli --username="${{ secrets.MULESOFT_USR }}" --password="${{ secrets.MULESOFT_PWD }}" exchange asset upload 42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.event.label.name }} --apiVersion v1 --name paul-poc-api-1 --classifier oas api.yaml
+          echo "42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.action }}"
+          anypoint-cli --username="${{ secrets.MULESOFT_USR }}" --password="${{ secrets.MULESOFT_PWD }}" exchange asset upload 42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.action }} --apiVersion v1 --name paul-poc-api-1 --classifier oas api.yaml
