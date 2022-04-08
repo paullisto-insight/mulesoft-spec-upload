@@ -7,6 +7,7 @@ paths:
     get:
       tags:
         - WeatherForecast
+        - TestTag
       operationId: GetWeatherForecast
       responses:
         '200':
