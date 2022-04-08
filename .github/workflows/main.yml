@@ -4,8 +4,6 @@ on:
   push:
     branches:
       [ main ]
-    tags:
-      - '**.*.**'
   workflow_dispatch:
 
 jobs:
@@ -17,13 +15,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - name: Extract tag name
-        id: tag
-        uses: actions/github-script@0.2.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            return context.payload.ref.replace(/\/refs\/tags\//, '');
       - name: npm install anypoint-cli and run command
         run: |
           npm install -g anypoint-cli@latest
