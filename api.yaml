@@ -8,6 +8,7 @@ paths:
       tags:
         - WeatherForecast
         - TestTag
+        - AnotherTestTag
       operationId: GetWeatherForecast
       responses:
         '200':
