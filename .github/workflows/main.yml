@@ -20,4 +20,5 @@ jobs:
       - name: npm install anypoint-cli and run command
         run: |
           npm install -g anypoint-cli@latest
+          echo "42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${GITHUB_REF##*/}"
           anypoint-cli --username="${{ secrets.MULESOFT_USR }}" --password="${{ secrets.MULESOFT_PWD }}" exchange asset upload 42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${GITHUB_REF##*/} --apiVersion v1 --name paul-poc-api-1 --classifier oas api.yaml
