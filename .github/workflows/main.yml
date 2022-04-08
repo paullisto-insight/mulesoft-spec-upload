@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: 16.x
       - name: npm install anypoint-cli and run command
-        if: ${{ github.event.label.name == '**.*.**' }}
         run: |
           npm install -g anypoint-cli@latest
           echo "42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.event.label.name }}"
