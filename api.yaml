@@ -9,6 +9,7 @@ paths:
         - WeatherForecast
         - TestTag
         - AnotherTestTag
+        - YetAnotherTestTag
       operationId: GetWeatherForecast
       responses:
         '200':
