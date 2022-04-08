@@ -20,5 +20,4 @@ jobs:
           ${{ github.event.label.name == 'publish' }}
         run: |
           npm install -g anypoint-cli@latest
-          echo "42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.event.pull_request.title }}"
           anypoint-cli --username="${{ secrets.MULESOFT_USR }}" --password="${{ secrets.MULESOFT_PWD }}" exchange asset upload 42133235-551d-490e-a5e1-96ca681126d8/${{ github.event.repository.name }}/${{ github.event.pull_request.title }} --apiVersion v1 --name ${{ github.event.repository.name }} --classifier oas api.yaml
