@@ -21,3 +21,4 @@ jobs:
         run: |
           npm install -g anypoint-cli@latest
           anypoint-cli --username="${{ secrets.MULESOFT_USR }}" --password="${{ secrets.MULESOFT_PWD }}" exchange asset upload ${{ secrets.MULESOFT_GRP_ID }}/${{ github.event.repository.name }}/${{ github.event.pull_request.title }} --apiVersion v1 --name ${{ github.event.repository.name }} --classifier oas api.yaml
+        # You may wish to change ${{ github.event.pull_request.title }} to 1.x.${{ github.run_id }}. Refer to README.md for more info.
