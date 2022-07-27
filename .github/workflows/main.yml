@@ -14,9 +14,6 @@ jobs:
         with:
           node-version: 16.x
       - name: npm install anypoint-cli and run command
-        if: |
-          ${{ github.event.pull_request.merged == true }} &&
-          ${{ github.event.label.name == 'publish' }}
         run: |
           npm install -g anypoint-cli@latest
           anypoint-cli --username="T_PWD }}" exchange asset upload ${{ secrets.MULESOFT_GRP_ID }}/${{ github.event.release.tag_name }}/${{ github.event.pull_request.title }} --apiVersion v1 --name ${{ github.event.repository.name }} --classifier oas api.yaml
